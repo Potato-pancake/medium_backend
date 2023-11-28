@@ -24,14 +24,14 @@ public class JwtFilter extends OncePerRequestFilter {
 
         try {
             token = jwtUtil.resolveJwt(request);
+
+            if (token != null) {
+                Authentication authentication = jwtUtil.getAuthentication(token);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
         catch (ExpiredJwtException e) {
             throw new RuntimeException("토큰이 만료되었습니다.");
-        }
-
-        if (token != null) {
-            Authentication authentication = jwtUtil.getAuthentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
         filterChain.doFilter(request, response);

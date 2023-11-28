@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import potato.medium.global.jwt.dto.TokenResponseDto;
-import potato.medium.presentation.dto.user.UserLoginRequestDto;
-import potato.medium.presentation.dto.user.UserRequestDto;
+import potato.medium.presentation.user.dto.UserLoginRequestDto;
+import potato.medium.presentation.user.dto.UserRequestDto;
 import potato.medium.service.user.UserService;
 
 @RestController

@@ -1,4 +1,4 @@
-package potato.medium.presentation.dto.user;
+package potato.medium.presentation.user.dto;
 
 import potato.medium.domain.user.User;
 

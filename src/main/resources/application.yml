@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/medium
+    url: jdbc:mysql://localhost:3306/aleldja
     username: root
     password: 1234
 
@@ -11,8 +11,9 @@ spring:
       ddl-auto: update
     open-in-view: false
 
-    profiles.include:
-      - jwt
+jwt:
+  secret_key: 17628450893752614982357909658437591205358692759
+  prefix: Bearer
 
 server:
   port: 8089

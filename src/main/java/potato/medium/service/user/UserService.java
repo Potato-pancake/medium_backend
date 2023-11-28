@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import potato.medium.domain.user.User;
 import potato.medium.global.jwt.dto.TokenResponseDto;
 import potato.medium.global.jwt.util.JwtUtil;
-import potato.medium.presentation.dto.user.UserLoginRequestDto;
-import potato.medium.presentation.dto.user.UserRequestDto;
+import potato.medium.presentation.user.dto.UserLoginRequestDto;
+import potato.medium.presentation.user.dto.UserRequestDto;
 import potato.medium.repository.user.UserRepository;
 
 import java.util.Optional;

@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import potato.medium.presentation.dto.user.UserRequestDto;
+import potato.medium.presentation.user.dto.UserRequestDto;
 
 @Entity
 @Getter
