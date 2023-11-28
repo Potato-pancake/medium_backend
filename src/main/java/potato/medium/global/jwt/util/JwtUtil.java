@@ -2,6 +2,9 @@ package potato.medium.global.jwt.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +15,7 @@ import potato.medium.global.jwt.auth.AuthDetailsService;
 import potato.medium.global.jwt.auth.AuthDetails;
 
 import java.util.Collections;
+import java.util.Date;
 
 @Component
 @RequiredArgsConstructor
@@ -24,6 +28,20 @@ public class JwtUtil {
 
     @Value("${jwt.prefix}")
     private String prefix;
+
+    public String generateToken(String id) {
+        Claims claims = Jwts.claims();
+        Date now = new Date();
+        claims.put("userId", id);
+
+        long exp = 30 * 60 * 1000L;
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + exp))
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey)), SignatureAlgorithm.ES256)
+                .compact();
+    }
 
     public String resolveJwt(HttpServletRequest request) {
         String bearer = request.getHeader("Authentication");

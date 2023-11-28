@@ -13,7 +13,8 @@ import potato.medium.presentation.dto.user.UserRequestDto;
 @NoArgsConstructor
 public class User {
     @Id
-    private Long id;
+    @Column(nullable = false)
+    private String id;
 
     @Column(nullable = false)
     private String password;
@@ -32,6 +33,7 @@ public class User {
 
     @Builder
     public User(UserRequestDto userRequestDto, String password) {
+        this.id = userRequestDto.id();
         this.password = password;
         this.email = userRequestDto.email();
         this.name = userRequestDto.name();
