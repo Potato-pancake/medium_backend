@@ -1,12 +1,12 @@
-package potato.medium.service.user;
+package potato.medium.service.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import potato.medium.repository.user.UserRepository;
+import potato.medium.repository.auth.AuthRepository;
 
 @Service
 @RequiredArgsConstructor
 public class UserGetService {
 
-    private final UserRepository userRepository;
+    private final AuthRepository userRepository;
 }

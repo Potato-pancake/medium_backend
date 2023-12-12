@@ -3,10 +3,10 @@ package potato.medium.domain.user;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import potato.medium.presentation.user.dto.UserRequestDto;
+import potato.medium.global.security.role.Role;
+import potato.medium.presentation.auth.dto.AuthRequestDto;
 
 @Entity
 @Getter
@@ -31,13 +31,29 @@ public class User {
     @Column(nullable = false)
     private String address;
 
-    @Builder
-    public User(UserRequestDto userRequestDto, String password) {
-        this.id = userRequestDto.id();
+    private String regiNumber;
+
+    private String bigGenre;
+
+    private String detailGenre;
+
+    private String organization;
+
+    @Column(nullable = false)
+    private Role role;
+
+    public User(AuthRequestDto authRequestDto, String password, Role role) {
+        id = authRequestDto.getId();
         this.password = password;
-        this.email = userRequestDto.email();
-        this.name = userRequestDto.name();
-        this.contact = userRequestDto.contact();
-        this.address = userRequestDto.address();
+        email = authRequestDto.getEmail();
+        name = authRequestDto.getName();
+        contact = authRequestDto.getContact();
+        address = authRequestDto.getAddress();
+        regiNumber = authRequestDto.getRegiNumber();
+        bigGenre = authRequestDto.getBigGenre();
+        detailGenre = authRequestDto.getDetailGenre();
+        organization = authRequestDto.getOrganization();
+        this.role = role;
     }
+
 }

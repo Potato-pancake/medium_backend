@@ -23,10 +23,10 @@ public class JwtUtil {
 
     private final AuthDetailsService authDetailsService;
 
-    @Value("${jwt.secret_key}")
+    @Value("${spring.jwt.secret_key}")
     private String secretKey;
 
-    @Value("${jwt.prefix}")
+    @Value("${spring.jwt.prefix}")
     private String prefix;
 
     public String generateToken(String id) {

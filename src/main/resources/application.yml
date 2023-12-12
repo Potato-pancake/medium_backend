@@ -8,12 +8,12 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     open-in-view: false
 
-jwt:
-  secret_key: 17628450893752614982357909658437591205358692759
-  prefix: Bearer
+  jwt:
+    secret_key: ${secret_key}
+    prefix: ${prefix}
 
 server:
   port: 8089
