@@ -1,4 +1,4 @@
-package potato.medium.global.exception;
+package potato.medium.global.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

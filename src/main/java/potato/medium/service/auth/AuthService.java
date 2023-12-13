@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import potato.medium.domain.user.User;
+import potato.medium.global.error.exception.UserNotFoundException;
 import potato.medium.global.jwt.dto.TokenResponseDto;
 import potato.medium.global.jwt.util.JwtUtil;
 import potato.medium.global.security.role.Role;
@@ -41,7 +42,7 @@ public class AuthService {
     public TokenResponseDto login(UserLoginRequestDto requestDto) {
         Optional<User> user = userRepository.findById(requestDto.id());
         if(user.isEmpty())
-            throw new IllegalArgumentException("올바르지 않은 아이디입니다.");
+            throw UserNotFoundException.EXCEPTION;
         if(!passwordEncoder.matches(requestDto.password(), user.get().getPassword()))
             throw new IllegalArgumentException("올바르지 않은 비밀번호입니다.");
 

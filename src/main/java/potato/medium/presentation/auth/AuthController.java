@@ -1,6 +1,7 @@
 package potato.medium.presentation.auth;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public TokenResponseDto login(@RequestBody UserLoginRequestDto requestDto) {
-        return authService.login(requestDto);
+    public ResponseEntity<TokenResponseDto> login(@RequestBody UserLoginRequestDto requestDto) {
+        return ResponseEntity.ok(authService.login(requestDto));
     }
 }
