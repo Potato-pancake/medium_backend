@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import potato.medium.global.error.exception.ErrorCode;
+import potato.medium.global.error.exception.MediumException;
 
 @Slf4j
 @RestControllerAdvice

@@ -1,7 +1,6 @@
-package potato.medium.global.error;
+package potato.medium.global.error.exception;
 
 import lombok.Getter;
-
 @Getter
 public class MediumException extends RuntimeException {
     private final ErrorCode errorCode;

@@ -1,4 +1,4 @@
-package potato.medium.global.security.role;
+package potato.medium.domain.user.role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

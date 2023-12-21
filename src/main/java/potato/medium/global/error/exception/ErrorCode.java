@@ -1,4 +1,4 @@
-package potato.medium.global.error;
+package potato.medium.global.error.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +16,7 @@ public enum ErrorCode {
     INVALID_TOKEN(403, "잘못된 토큰입니다."),
     EXPIRED_TOKEN(403, "만료된 토큰입니다."),
 
+    ILLEGAL_PASSWORD(401, "잘못된 비밀번호입니다."),
     USER_NOT_FOUND(404, "유저를 찾을 수 없습니다."),
     USER_ALREADY_REGISTERED(409, "이미 가입된 유저입니다.");
 
