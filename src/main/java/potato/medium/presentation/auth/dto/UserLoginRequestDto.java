@@ -1,4 +1,4 @@
-package potato.medium.presentation.user.dto;
+package potato.medium.presentation.auth.dto;
 
 public record UserLoginRequestDto(
         String id,
