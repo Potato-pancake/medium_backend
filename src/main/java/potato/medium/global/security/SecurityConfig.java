@@ -45,10 +45,10 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/artist/**").hasRole("ARTIST")
-                        .requestMatchers("/company/**").hasRole("COMPANY")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/auth/**").permitAll()
+                        //.requestMatchers("/api/artist/**").hasRole("ARTIST")
+                        //.requestMatchers("/api/company/**").hasRole("COMPANY")
+                        //.requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
 

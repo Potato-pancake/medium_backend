@@ -44,7 +44,7 @@ public class JwtUtil {
     }
 
     public String resolveJwt(HttpServletRequest request) {
-        String bearer = request.getHeader("Authentication");
+        String bearer = request.getHeader("Authorization");
 
         if(bearer == null || !bearer.startsWith(prefix)) {
             return null;

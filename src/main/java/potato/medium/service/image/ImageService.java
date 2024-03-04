@@ -16,7 +16,7 @@ import java.util.UUID;
 @Service
 public class ImageService {
 
-    private static final String uploadPath = "/";
+    private static final String uploadPath = "/images/";
 
     public static String generateString() {
         int leftLimit = 48; // numeral '0'
@@ -36,6 +36,7 @@ public class ImageService {
     public String saveImage(String artistName, MultipartFile file) throws IOException {
         String randomString = generateString();
         String fileName = randomString + StringUtils.cleanPath(file.getOriginalFilename());
+
         Path uploadPath = Paths.get(ImageService.uploadPath + artistName);
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
